@@ -1,0 +1,46 @@
+trigger: none
+pool:
+  vmImage: 'macos-latest'
+
+variables:
+  - name: iosSdk
+    value: 'iphonesimulator14.5'
+  - name: configuration
+    value: 'Release'
+  - name: buildDir
+    value: '$(system.defaultWorkingDirectory)/build'
+
+steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '3.x'
+      addToPath: true
+
+#  - script: |
+#      python3 -m pip install --upgrade pip
+#      python3 -m pip install -r requirements.txt
+#    displayName: 'Install dependencies'
+#
+#  - task: Xcode@5
+#    inputs:
+#      actions: 'clean build'
+#      configuration: '$(configuration)'
+#      sdk: '$(iosSdk)'
+#      scheme: 'iosApp'
+#      xcWorkspacePath: 'iosApp/iosApp.xcworkspace'
+#      packageApp: false
+#
+#  - task: Xcode@5
+#    inputs:
+#      actions: 'archive'
+#      configuration: '$(configuration)'
+#      sdk: '$(iosSdk)'
+#      scheme: 'iosApp'
+#      xcWorkspacePath: 'iosApp/iosApp.xcworkspace'
+#      archivePath: '$(buildDir)/$(Build.BuildId).xcarchive'
+
+#  - task: PublishBuildArtifacts@1
+#    inputs:
+#      PathtoPublish: '$(buildDir)/$(Build.BuildId).xcarchive'
+#      ArtifactName: 'drop'
+#      publishLocation: 'Container'
